@@ -24,3 +24,6 @@ def get_sts_token():
     #return support_resources
 def main():
     get_sts_token()
+    
+if __name__ == "__main__":
+    main()
