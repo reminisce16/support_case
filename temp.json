@@ -1,0 +1,26 @@
+{
+    'cases': [{
+        'caseId': 'case-267384000844-mczh-2022-6c0cd5f5ceb3aea',
+        'displayId': '1701850214',
+        'subject': 'Chat: Docker网络互通',
+        'status': 'pending-customer-action',
+        'serviceCode': 'ec2-container-service',
+        'categoryCode': 'general-guidance',
+        'severityCode': 'normal',
+        'submittedBy': 'aws-project04@cloudriches.com.cn',
+        'timeCreated': '2022-06-19T05:50:43.647Z',
+        'ccEmailAddresses': [],
+        'language': 'zh'
+    }],
+    'ResponseMetadata': {
+        'RequestId': 'ec34dd14-a311-4594-b13b-ead136334142',
+        'HTTPStatusCode': 200,
+        'HTTPHeaders': {
+            'x-amzn-requestid': 'ec34dd14-a311-4594-b13b-ead136334142',
+            'content-type': 'application/x-amz-json-1.1',
+            'content-length': '412',
+            'date': 'Sun, 19 Jun 2022 15:46:17 GMT'
+        },
+        'RetryAttempts': 0
+    }
+}
