@@ -1,3 +1,4 @@
+from unittest import result
 import boto3
 import botostubs
 import pymysql
@@ -43,22 +44,38 @@ def get_sts_token(account):
     currentAccount=account[13:25]
     return support_resources,currentAccount
 
+def queryCaseId(conn):
+    cursor = conn.cursor()
+    cursor.execute("select s3_name from s3")
+    result = cursor.fetchall()
+    conn.commit()
+    cursor.close()
+    return result
+
 #TEST list bucket
 def listBucket(support_resources):
-    values=[]
+    results=queryCaseId(connection)
+    result_list=[]
+    for record in results:
+        result_list.append(record['s3_name'])
+    
     for bucket in support_resources[0].buckets.all():
         value=(support_resources[1],bucket.name)
-        values.append(value)
-    return values
+        if bucket.name not in result_list:
+            return value
+
+#Query all caseId
+
 
 def main():
     for account in accounts:
         try:
             support_resources=get_sts_token(account=account)
-            values=listBucket(support_resources=support_resources)
-            sql_insert="insert into s3 values (%s,%s)"
-            cursor.executemany(sql_insert,values)
-            connection.commit()
+            value=listBucket(support_resources=support_resources)
+            if value is not None:
+                sql_insert="insert into s3 values (%s,%s)"
+                cursor.execute(sql_insert,value)
+                connection.commit()
         except Exception as e:
             print(e)
 
@@ -69,6 +86,7 @@ def main():
 
 
 if __name__ == '__main__':
+    
     main()
     ''' for caseinfo in responses['cases']:
         account=12345,
