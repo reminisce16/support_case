@@ -64,9 +64,6 @@ def listBucket(support_resources):
         if bucket.name not in result_list:
             return value
 
-#Query all caseId
-
-
 def main():
     for account in accounts:
         try:
@@ -84,7 +81,6 @@ def main():
 #     includeCommunications=False
 # )
 
-
 if __name__ == '__main__':
     
     main()
@@ -96,7 +92,4 @@ if __name__ == '__main__':
         serviceCode=caseinfo['serviceCode'],
         categoryCode=caseinfo['categoryCode'],
         severityCode=caseinfo['severityCode'],
-        timeCreated=caseinfo['timeCreated']
-        values=''.join(displayId)+","+''.join(subject)+","+''.join(status)+","+''.join(serviceCode)+","+''.join(categoryCode)+","+''.join(severityCode)+","+''.join(timeCreated)
-        sql="insert into test1 values(%s)" % values
-        print(sql) '''
+        timeCreated=caseinfo['timeCreated']'''
